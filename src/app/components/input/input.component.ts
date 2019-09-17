@@ -7,7 +7,7 @@ import { FieldConfig } from "../../field.interface";
   selector: "app-input",
   template: `
       
-      <mat-form-field [formGroup]="group">
+      <mat-form-field class="dynamic-field" [formGroup]="group">
           <input matInput [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType">
           <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
              <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>

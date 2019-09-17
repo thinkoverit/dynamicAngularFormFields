@@ -4,7 +4,7 @@ import { FieldConfig } from "../../field.interface";
 @Component({
   selector: "[app-button]",
   template: `
-            <div class="dynamic-radio" [formGroup]="group">
+            <div class="dynamic-field"  [formGroup]="group">
                 <button type="submit" mat-raised-button color="primary">{{field.label}}</button>
             </div>
             `,

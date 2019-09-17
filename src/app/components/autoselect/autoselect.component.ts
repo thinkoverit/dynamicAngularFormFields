@@ -9,7 +9,7 @@ import { FieldConfig } from "../../field.interface";
 @Component({
   selector: "app-autoselect",
   template: `
-        <mat-form-field [formGroup]="group">
+        <mat-form-field class="dynamic-field" [formGroup]="group">
           <input type="text" [placeholder]="field.label" [formControlName]="field.name" aria-label="Number" matInput [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn()">
             <mat-option *ngFor="let option of field.options" [value]="option.id">

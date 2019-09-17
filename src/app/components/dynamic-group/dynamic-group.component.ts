@@ -6,7 +6,7 @@ import { FieldConfig, Validator } from "../../field.interface";
 @Component({
   selector: "[dynamicFormGroup]",
   template: `
-    <div class="form-group">
+    <div class="form-group" [formGroup]="group">
       <h5>{{field.label}}</h5>
       <div class="form-row" class="dynamic-form-group" [formGroupName]="field.name">
         <ng-container *ngFor="let field of field.fields;" [ngSwitch]="field.type">

@@ -4,7 +4,7 @@ import { FieldConfig } from "../../field.interface";
 @Component({
   selector: "app-checkbox",
   template: `
-            <div class="dynamic-checkbox" [formGroup]="group" >
+            <div class="dynamic-field"  [formGroup]="group" >
                 <mat-checkbox [formControlName]="field.name">{{field.label}}</mat-checkbox>
             </div>
             `,

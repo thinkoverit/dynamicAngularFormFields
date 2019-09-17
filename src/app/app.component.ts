@@ -75,35 +75,8 @@ export class AppComponent {
           inputType: "select",
           options: ["Male", "Female"],
           value: "Male"
-        },{
-          type: "checkbox",
-          label: "Accept Terms",
-          name: "accept",
-          inputType: "checkbox",
-          value: ""
         }
       ]
-    },
-    {
-      type: "input",
-      label: "PAN ",
-      name: "pan",
-      value: "",
-      inputType: "text",
-      validations: [
-        {
-          name: "required",
-          validator: Validators.required,
-          message: "PAN is Required"
-        }
-      ]
-    },
-    {
-      type: "input",
-      label: "GST",
-      name: "gstin",
-      inputType: "text",
-      value: ""
     },
     {
       type: "array",
@@ -115,42 +88,54 @@ export class AppComponent {
         fields: [
           {
             type: "input",
-            label: "Address",
-            name: "address",
+            label: "First Name",
+            name: "firstame",
             inputType: "text",
             value: ""
           },{
             type: "input",
-            label: "State",
-            name: "state",
+            label: "Last Name",
+            name: "lastname",
             inputType: "text",
             value: ""
           },
           {
             type: "group",
-            label: "Personal Info",
-            name: "personalInfo",
+            label: "Address",
+            name: "address",
             fields: [
               {
                 type: "input",
-                label: "Gender",
-                name: "gender",
-                inputType: "text",
-                value: "Male"
-              }
+                label: "Address Line 1",
+                name: "line1",
+                inputType: "text"
+              },
+              {
+                type: "input",
+                label: "Address Line 2",
+                name: "line2",
+                inputType: "text"
+              },
+              {
+                type: "input",
+                label: "Pincode",
+                name: "pincode",
+                inputType: "text"
+              },
             ]
           }
         ]
       },
       data: [
         {
-          address: "Shivajinagar",
-          state: "MH"
-        },{
-          address: "Mambai",
-          state: "MH"
+          firstame: "Shivajinagar",
+          lastname: "MH",
+          address: {
+            line1: "Shivajinagar",
+            line2: "FC Road",
+            pincode: "411005"
+          }
         }
-
       ]
     }
   ];

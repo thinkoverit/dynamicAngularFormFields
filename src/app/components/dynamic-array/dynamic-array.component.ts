@@ -10,19 +10,20 @@ import { FieldConfig, Validator } from "../../field.interface";
     <div *ngIf="localGroup['controls'] && localGroup['controls'].length" class="dynamic-form-group" [formArrayName]="field.name">
       <ng-container *ngFor="let itemrow of localGroup['controls']; let i = index;">
         <div class="dynamic-form-group" [formGroupName]="i">
-          <ng-container *ngFor="let field of field.group.fields;" [ngSwitch]="field.type">
-            <app-input *ngSwitchCase="'input'" [field]="field" [group]="itemrow"></app-input>
-            <app-input  *ngSwitchCase="'password'" [field]="field" [group]="itemrow"></app-input>  
-            <app-checkbox *ngSwitchCase="'checkbox'" [field]="field" [group]="itemrow"></app-checkbox>
-            <app-radio *ngSwitchCase="'radio'" [field]="field" [group]="itemrow"></app-radio>
-            <app-select *ngSwitchCase="'select'" [field]="field" [group]="itemrow"></app-select>
-            <app-date *ngSwitchCase="'date'" [field]="field" [group]="itemrow"></app-date>
-            <div *ngSwitchCase="'group'"  dynamicFormGroup [field]="field" [group]="itemrow"></div>
+          <h5>{{field.group.label}}-{{i+1}}</h5>
+          <ng-container *ngFor="let fld of field.group.fields;" [ngSwitch]="fld.type">
+            <app-input *ngSwitchCase="'input'" [field]="fld" [group]="itemrow"></app-input>
+            <app-input  *ngSwitchCase="'password'" [field]="fld" [group]="itemrow"></app-input>  
+            <app-checkbox *ngSwitchCase="'checkbox'" [field]="fld" [group]="itemrow"></app-checkbox>
+            <app-radio *ngSwitchCase="'radio'" [field]="fld" [group]="itemrow"></app-radio>
+            <app-select *ngSwitchCase="'select'" [field]="fld" [group]="itemrow"></app-select>
+            <app-date *ngSwitchCase="'date'" [field]="fld" [group]="itemrow"></app-date>
+            <div *ngSwitchCase="'group'"  dynamicFormGroup [field]="fld" [group]="itemrow"></div>
           </ng-container>
         </div>
       </ng-container>
     </div>
-    <button class="btn" (click)="addNew()">Add New </button>
+    <button class="btn btn-outline" (click)="addNew()">Add New </button>
   `,
   styles: [],
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]

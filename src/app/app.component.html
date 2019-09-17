@@ -1,14 +1,12 @@
-<div class="form">
-  <div style="text-align:center">
-    <h1>
-      Registration Form
-    </h1>
-  </div>
+<div class="dynamic-form">
+  <h1>Angular 6 Generated Dynamic Form from JSON schema</h1>
   <form *ngIf="form" [formGroup]="form"  class="dynamic-form">
       <div dynamicForm [fields]="regConfig" [group]="form"></div>
-      <button (click)="submit();">Save</button>
+      <div class="btn-wrapper">
+        <button class="btn btn-primary" (click)="submit();">Save</button>
+      </div>
   </form>
   <div *ngIf="form" class="margin-top">
-    {{ form.value | json }}
+    <pre>{{ form.value | json }}</pre>
   </div>
 </div>

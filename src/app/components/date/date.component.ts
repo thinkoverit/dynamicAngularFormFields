@@ -4,7 +4,7 @@ import { FieldConfig } from "../../field.interface";
 @Component({
   selector: "app-date",
   template: `
-        <mat-form-field class="dynamic-datepicker" [formGroup]="group">
+        <mat-form-field class="dynamic-field"  [formGroup]="group">
             <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.label">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
