@@ -153,9 +153,9 @@ Custom "dynamicForm" directive will generate the form based on fields JSON confi
 
 <strong>TODO</strong>
     <ul>
-      <li>ngx DatePicker<li>
-      <li>MAT slider support<li>
-      <li>Dynamic form layouts...<li>
+      <li>ngx DatePicker</li>
+      <li>MAT slider support</li>
+      <li>Dynamic form layouts...</li>
     </ul>
 
     
