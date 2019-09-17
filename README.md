@@ -7,7 +7,7 @@ Generate Angular 6 form with configurable fields and validations using JSON sche
 This project is still under development..
 
 Sampel JSON config to generate Angular Form 
-
+<pre>
 [
     {
       type: "input",
@@ -82,27 +82,6 @@ Sampel JSON config to generate Angular Form
       ]
     },
     {
-      type: "input",
-      label: "PAN ",
-      name: "pan",
-      value: "",
-      inputType: "text",
-      validations: [
-        {
-          name: "required",
-          validator: Validators.required,
-          message: "PAN is Required"
-        }
-      ]
-    },
-    {
-      type: "input",
-      label: "GST",
-      name: "gstin",
-      inputType: "text",
-      value: ""
-    },
-    {
       type: "array",
       label: "Directors",
       name: "directors",
@@ -147,30 +126,38 @@ Sampel JSON config to generate Angular Form
           address: "Mambai",
           state: "MH"
         }
-
       ]
     }
   ]
+</pre>
 
-Main Component:
+<strong>Main Component:</strong>
+
     Create empty top level form Group and pass to dynamicForm directive
-
+<pre>
     this.form = this.fb.group({});
+</pre>
 
 
-Min component template:
+<strong>Main component template:</strong>
 
+```html
   <form *ngIf="form" [formGroup]="form"  class="dynamic-form">
       <div dynamicForm [fields]="regConfig" [group]="form"></div>
       <button (click)="submit();">Save</button>
   </form>
+```
 
 Custom "dynamicForm" directive will generate the form based on fields JSON config passed to it..
 
 
-TODO
-    Dynamic form layouts...
+<strong>TODO</strong>
+    <ul>
+      <li>ngx DatePicker<li>
+      <li>MAT slider support<li>
+      <li>Dynamic form layouts...<li>
+    </ul>
 
     
-ENJOY!!!
+<strong>ENJOY!!!</strong>
 
