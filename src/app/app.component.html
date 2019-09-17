@@ -6,9 +6,7 @@
   </div>
   <form *ngIf="form" [formGroup]="form"  class="dynamic-form">
       <div dynamicForm [fields]="regConfig" [group]="form"></div>
-      <div>
-        <button (click)="submit();">Save</button>
-      </div>
+      <button (click)="submit();">Save</button>
   </form>
   <div *ngIf="form" class="margin-top">
     {{ form.value | json }}

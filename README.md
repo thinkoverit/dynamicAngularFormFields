@@ -1,28 +1,176 @@
-# DynamicForm
+# DynamicGeneratedForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## Development server
+Generate Angular 6 form with configurable fields and validations using JSON schema in Angular 6+
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project is still under development..
 
-## Code scaffolding
+Sampel JSON config to generate Angular Form 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[
+    {
+      type: "input",
+      label: "Username",
+      inputType: "text",
+      name: "name",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "Name Required"
+        },
+        {
+          name: "pattern",
+          validator: Validators.pattern("^[a-zA-Z]+$"),
+          message: "Accept only text"
+        }
+      ]
+    },
+    {
+      type: "password",
+      label: "Password",
+      inputType: "password",
+      name: "password",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "Name Required"
+        }
+      ]
+    },
+    {
+      type: "autoselect",
+      label: "Employee",
+      name: "employee",
+      options: [],
+      url: 'http://dummy.restapiexample.com/api/v1/employees',
+      value: "Male"
+    },
+    {
+      type: "date",
+      label: "DOB",
+      name: "dob",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "DOB Required"
+        }
+      ]
+    },
+    {
+      type: "group",
+      label: "Personal Info",
+      name: "personalInfo",
+      fields: [
+        {
+          type: "radio",
+          label: "Gender",
+          name: "gender",
+          inputType: "select",
+          options: ["Male", "Female"],
+          value: "Male"
+        },{
+          type: "checkbox",
+          label: "Accept Terms",
+          name: "accept",
+          inputType: "checkbox",
+          value: ""
+        }
+      ]
+    },
+    {
+      type: "input",
+      label: "PAN ",
+      name: "pan",
+      value: "",
+      inputType: "text",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "PAN is Required"
+        }
+      ]
+    },
+    {
+      type: "input",
+      label: "GST",
+      name: "gstin",
+      inputType: "text",
+      value: ""
+    },
+    {
+      type: "array",
+      label: "Directors",
+      name: "directors",
+      group: {
+        label: "Director",
+        name: "director",
+        fields: [
+          {
+            type: "input",
+            label: "Address",
+            name: "address",
+            inputType: "text",
+            value: ""
+          },{
+            type: "input",
+            label: "State",
+            name: "state",
+            inputType: "text",
+            value: ""
+          },
+          {
+            type: "group",
+            label: "Personal Info",
+            name: "personalInfo",
+            fields: [
+              {
+                type: "input",
+                label: "Gender",
+                name: "gender",
+                inputType: "text",
+                value: "Male"
+              }
+            ]
+          }
+        ]
+      },
+      data: [
+        {
+          address: "Shivajinagar",
+          state: "MH"
+        },{
+          address: "Mambai",
+          state: "MH"
+        }
 
-## Build
+      ]
+    }
+  ]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Main Component:
+    Create empty top level form Group and pass to dynamicForm directive
 
-## Running unit tests
+    this.form = this.fb.group({});
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Min component template:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  <form *ngIf="form" [formGroup]="form"  class="dynamic-form">
+      <div dynamicForm [fields]="regConfig" [group]="form"></div>
+      <button (click)="submit();">Save</button>
+  </form>
 
-## Further help
+Custom "dynamicForm" directive will generate the form based on fields JSON config passed to it..
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# angular_dynamicform
+
+TODO
+    Dynamic form layouts...
+
+    
+ENJOY!!!
+
