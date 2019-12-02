@@ -6,7 +6,13 @@ Generate Angular 6 form with configurable fields and validations using JSON sche
 
 This project is still under development..
 
-Sampel JSON config to generate Angular Form 
+Custom "dynamicForm" directive will generate the form based on fields JSON config passed to it..
+
+
+1) Usage Scenario Plain Layout Form Elements
+
+Sample JSON FieldConfig to generate Angular Form 
+
 <pre>
 [
   {
@@ -154,15 +160,57 @@ Sampel JSON config to generate Angular Form
       <button (click)="submit();">Save</button>
   </form>
 ```
+2) Usage Scenario Accordian Layout Form Elements
 
-Custom "dynamicForm" directive will generate the form based on fields JSON config passed to it..
+Sampel JSON LayoutConfig to generate Angular Form 
 
+<pre>
+[
+  {
+    label: "Accordian",
+    type: "accordian",
+    isMulti: false,
+    sections: [
+      {
+        label: "Accordian 1",
+        name: 'accordian1',
+        fields: "{ FieldConfig as in Usage scenario 1 }",
+        disabled: false,
+        expanded: false,
+      },
+      {
+        label: "Accordian 2",
+        name: 'accordian2',
+        fields: "{ FieldConfig as in Usage scenario 1 }",
+        disabled: false,
+        expanded: false,
+      },
+    ]
+  }
+]
+</pre>
+
+<strong>Main Component:</strong>
+
+    Create empty top level form Group and pass to dynamicForm directive
+<pre>
+    this.form = this.fb.group({});
+</pre>
+
+
+<strong>Main component template:</strong>
+
+```html
+    <ng-container *ngFor="let layout of layoutConfig;" [ngSwitch]="layout.type">
+      <app-accordian *ngSwitchCase="'accordian'" [layout]="layout" [group]="form"></app-accordian>
+    </ng-container>
+```
 
 <strong>TODO</strong>
     <ul>
       <li>ngx DatePicker</li>
       <li>MAT slider support</li>
-      <li>Dynamic form layouts...</li>
+      <li>Dynamic form layouts (tabs)...</li>
     </ul>
 
     
