@@ -1,6 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
-import { FieldConfig } from "./field.interface";
+import { FieldConfig, LayoutConfig } from "./field.interface";
 import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
 
 @Component({
@@ -136,6 +136,30 @@ export class AppComponent {
             pincode: "411005"
           }
         }
+      ]
+    }
+  ];
+
+  layoutConfig: LayoutConfig[] = [
+    {
+      label: "Accordian",
+      type: "accordian",
+      isMulti: false,
+      sections: [
+        {
+          label: "Accordian 1",
+          name: 'accordian1',
+          fields: this.regConfig,
+          disabled: false,
+          expanded: false,
+        },
+        {
+          label: "Accordian 2",
+          name: 'accordian2',
+          fields: this.regConfig,
+          disabled: false,
+          expanded: false,
+        },
       ]
     }
   ];

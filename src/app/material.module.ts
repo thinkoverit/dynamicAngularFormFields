@@ -1,54 +1,75 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {NgModule} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CdkTableModule } from '@angular/cdk/table';
+
 import {
+  MatAutocompleteModule,
   MatButtonModule,
-  MatIconModule,
+  MatButtonToggleModule,
   MatCardModule,
-  MatFormFieldModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
   MatInputModule,
   MatListModule,
-  MatDatepickerModule,
+  MatMenuModule,
   MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
   MatSelectModule,
-  MatOptionModule,
-  MatCheckboxModule,
-  MatRadioModule
-} from "@angular/material";
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+} from '@angular/material';
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatMomentDateModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatAutocompleteModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatMomentDateModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatAutocompleteModule
-  ]
+  exports: [CommonModule,
+		    MatAutocompleteModule,
+		    MatButtonModule,
+		    MatButtonToggleModule,
+		    MatCardModule,
+		    MatCheckboxModule,
+		    MatChipsModule,
+		    MatStepperModule,
+		    MatDatepickerModule,
+		    MatDialogModule,
+		    MatExpansionModule,
+		    MatGridListModule,
+		    MatIconModule,
+		    MatInputModule,
+		    MatListModule,
+		    MatMenuModule,
+		    MatNativeDateModule,
+		    MatPaginatorModule,
+		    MatProgressBarModule,
+		    MatProgressSpinnerModule,
+		    MatRadioModule,
+		    MatRippleModule,
+		    MatSelectModule,
+		    MatSidenavModule,
+		    MatSliderModule,
+		    MatSlideToggleModule,
+		    MatSnackBarModule,
+		    MatSortModule,
+		    MatTableModule,
+		    MatTabsModule,
+		    MatToolbarModule,
+		    MatTooltipModule,
+        CdkTableModule
+  		],
 })
-export class MaterialModule {}
+export class AppMaterialModule { }
